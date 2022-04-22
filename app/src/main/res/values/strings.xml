@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Movies List</string>
+    <string name="navigation_drawer_header_title">Title</string>
+
+    <string name="movies_navigation_item">Movies</string>
+    <string name="movies_list">Movies</string>
+    <string name="favorite_movies_tittle">Favorite</string>
+</resources>

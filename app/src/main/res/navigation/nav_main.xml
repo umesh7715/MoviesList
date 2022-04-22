@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/moviesFragment">
+
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="com.andromesh.movieslist.movies.ui.MoviesFragment"
+        android:label="@string/movies_list"
+        tools:layout="@layout/movies_fragment">
+
+        <action
+            android:id="@+id/action_moviesFragment_to_movieFragment"
+            app:destination="@id/movieFragment">
+
+
+        </action>
+        <action
+            android:id="@+id/action_moviesFragment_to_favoriteMoviesFragment2"
+            app:destination="@id/favoriteMoviesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.andromesh.movieslist.movies.ui.MovieFragment"
+        android:label="MovieFragment">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+        <argument
+            android:name="name"
+            app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoriteMoviesFragment"
+        android:name="com.andromesh.movieslist.movies.ui.FavoriteMoviesFragment"
+        android:label="@string/favorite_movies_tittle" />
+
+
+</navigation>

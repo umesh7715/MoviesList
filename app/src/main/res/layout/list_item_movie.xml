@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="onClickListner"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onFavroiteClickListner"
+            type="com.andromesh.movieslist.binding.ImageClickHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.andromesh.movieslist.movies.ui.MoviesViewModel" />
+
+        <variable
+            name="movie"
+            type="com.andromesh.movieslist.movies.data.Movie" />
+
+
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:onClick="@{onClickListner}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/ibFavorite"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/like_button_selector"
+                android:backgroundTint="@color/colorAccent"
+                android:button="@null"
+                android:checked="false"
+                android:onClick="@{(v) -> onFavroiteClickListner.onImageButtonClicked(v,movie,viewModel)}"
+                android:stateListAnimator="@xml/like_animator"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivPoster">
+
+            </CheckBox>
+
+
+            <ImageView
+                android:id="@+id/ivPoster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher_background"
+                app:imageFromUrl="@{movie.getPath()}"
+                app:layout_constraintBottom_toTopOf="@+id/tvName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxLines="2"
+                android:minLines="2"
+                android:padding="4dp"
+                android:text="@{movie.title}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ibFavorite"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</layout>
